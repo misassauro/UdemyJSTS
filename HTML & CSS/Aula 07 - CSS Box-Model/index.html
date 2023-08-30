@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-model</title> <!--O box-model é a caixa retangular onde todos os elementos são montados. O box-model é construído através do content-edge, padding-edge, border-edge e margin-edge.-->
+    <style>
+        .section-one {
+            width: 200px;
+            height: 150px;
+            background-color: deeppink;
+            background-image: url('https://imgs.search.brave.com/7FMy16z08tCJeayrfOHQegp_c5SfofHZ3_Xy-8y9Tew/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/aWZ1bm55LmNvL2lt/YWdlcy9jNTJlNjdj/ODRkOTllNDdiNGMw/NDRmOWU3MmNjYTI3/YjdiNmY1Y2I2MjI4/ZWE5MWI2ZWE2ZjZi/NzdiYTVmMTVkXzEu/anBn');
+            background-size: cover; /*O cover serve para que a imagem apareça por completo no fundo*/
+            background-position: center center; /*Primeiro center: centralizado do topo para baixo; segundo center: centralizando lateralmente.*/
+            border: 5px solid black; /*Bordas acrescentam tamanho ao conteúdo*/ 
+            padding: 15px; /*O padding permite "inflar" o conteúdo. Isso é útil para que haja espaço apropriado entre a borda e o conteúdo propriamente dito.*/
+            color: #000000;
+            margin: 20px auto;
+        }
+        .section-two {
+            background: cyan;
+        }
+    </style>
+</head>
+<body>
+    <section class="section-one">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo voluptates incidunt illo delectus, ipsa officia repellendus suscipit laborum architecto voluptas at mollitia quam magni minima recusandae? Quibusdam, at accusamus.
+    </section>
+    <section class="section-two">
+        2
+    </section>
+</body>
+</html>
