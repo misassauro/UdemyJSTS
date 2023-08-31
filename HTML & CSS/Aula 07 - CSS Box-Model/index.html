@@ -5,26 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Box-model</title> <!--O box-model é a caixa retangular onde todos os elementos são montados. O box-model é construído através do content-edge, padding-edge, border-edge e margin-edge.-->
     <style>
+        /*PROPRIEDADES COMPARTILHADAS*/
+        .section-one, .section-two {
+            box-sizing: border-box; /*O border-box serve para que as nossas definições de padding e border sejam levadas em conta no cálculo de width e height, não ultrapassando os valores determinados neles. Em outras palavras, os valores de padding e border irão compor os valores de width e height para seguir corretamente a configuração de tamanho de um elemento. Assim, será possível confiar que um elemento com 200px de largura e altura realmente terá esse tamanho.*/
+        }
+
+        /*É recomendável que sempre se inicie o código CSS assim:*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         .section-one {
+            /*Quando definimos largura e altura, configuramnos o tamanho do conteúdo, não de suas delimitações, isto é, as bordas.*/
             width: 200px;
             height: 150px;
+            color: #1b8012;
             background-color: deeppink;
             background-image: url('https://imgs.search.brave.com/7FMy16z08tCJeayrfOHQegp_c5SfofHZ3_Xy-8y9Tew/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/aWZ1bm55LmNvL2lt/YWdlcy9jNTJlNjdj/ODRkOTllNDdiNGMw/NDRmOWU3MmNjYTI3/YjdiNmY1Y2I2MjI4/ZWE5MWI2ZWE2ZjZi/NzdiYTVmMTVkXzEu/anBn');
+
             background-size: cover; /*O cover serve para que a imagem apareça por completo no fundo*/
+
             background-position: center center; /*Primeiro center: centralizado do topo para baixo; segundo center: centralizando lateralmente.*/
-            border: 5px solid black; /*Bordas acrescentam tamanho ao conteúdo*/ 
-            padding: 15px; /*O padding permite "inflar" o conteúdo. Isso é útil para que haja espaço apropriado entre a borda e o conteúdo propriamente dito.*/
-            color: #000000;
-            margin: 20px auto;
+
+            /*É necessário definir três valores para que uma borda apareça: width, style e color. É possível definir tudo em apenas uma linha ou personalizar cada um dos lados das bordas, sendo este último caso exemplificado abaixo.*/
+
+            border: 10px; /*Bordas acrescentam tamanho ao conteúdo. Aqui já definimos a largura da borda*/
+
+            /*BORDA SUPERIOR*/
+            border-top-color: yellow;
+            border-top-style: double;
+
+            /*BORDA ESQUERDA*/
+            border-left-color: cadetblue;
+            border-left-style: dotted;
+
+            /*BORDA DIREITA*/
+            border-right-color: rgb(43, 177, 226);
+            border-right-style: dashed;
+   
+            /*BORDA INFERIOR*/
+            border-bottom-color: rgb(25, 156, 64);
+            border-bottom-style: ridge;
+
+            padding: 10px 0 20px 10px; /*O padding permite "inflar" o conteúdo. Isso é útil para que haja espaço apropriado entre a borda e o conteúdo propriamente dito. Os valores indicam, respectivamente: (T)OPO, (D)IREITA, (B)AIXO e (E)SQUERDA. Se definido apenas um valor, isso valerá para todos os lados. Se definidos dois valores, o primeiro valerá para T e B e o segundo para D e E. Se definido três valores, o primeiro valerá para T, o segundo para D e o terceiro para B.*/
+
+            margin: 20px; /*section-one e section-two possuem o mesmo valor de margin: 20px. Essas margens não são somadas, como se houvesse 40px de distância entre a parte inferior de section-one com a parte superior de section-two. As margens se unem, de modo a haver apenas 20px de espaço entre as seções. Caso seus valores de margem fossem diferentes, o maior seria priorizado.*/
         }
         .section-two {
             background: cyan;
+            width: 200px;
+            height: 150px;
+            color: #000000;
+            margin: 20px;
+            border: 5px solid black;
+            padding: 15px;
         }
     </style>
 </head>
 <body>
     <section class="section-one">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo voluptates incidunt illo delectus, ipsa officia repellendus suscipit laborum architecto voluptas at mollitia quam magni minima recusandae? Quibusdam, at accusamus.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.Lorem ipsum dolor sit amet consectetur, adipisicing elit.
     </section>
     <section class="section-two">
         2
