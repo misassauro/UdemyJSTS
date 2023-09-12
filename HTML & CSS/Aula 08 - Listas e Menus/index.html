@@ -4,8 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listas e menus</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            /*justify-content: center; Isso alinha o conteúdo no centro apenas horizontalmente.*/
+            align-items: center; /*Isso centraliza no eixo vertical e horizontal tudo que estiver dentro da nav*/
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 10px;
+            display: block;
+
+        }
+
+        nav a:hover {
+            background: rgba(0, 0, 0, 1);
+        }
+
+        nav ul {
+            display: flex; /*Isso é o mesmo que flex-direction: row*/
+            list-style: none;
+            background: red;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+        </ul>
+    </nav>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <ol type="1" start="20">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+    <dl>
+        <dt>Café</dt>
+        <dd>Bebida preta quente</dd>
+        <dt>Leite</dt>
+        <dd>Leite :D</dd>
+    </dl>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, harum similique aspernatur quasi aliquam, dolorem cum <a href="#" style="background: red; padding: 40px;">eius</a> nam voluptas corporis mollitia, rerum nostrum impedit deserunt beatae necessitatibus culpa maxime? Nobis. <!--A tag a, por padrão, possui o display inline, não alterando o conteúdo ao redor com quebra de linha, por exemplo. Quando a configuramos com o display: block, aí sim ela passa a se comportar como um bloco, fazendo modificações em seu entorno.-->
+    </p>
 </body>
 </html>
