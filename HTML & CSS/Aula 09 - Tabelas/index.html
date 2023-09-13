@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table {
+            border-collapse: collapse; /*Esse comando une as bordas da tabela.*/
+            width: 800px;
+        }
+        table caption {
+            caption-side: bottom;
+            text-align: left;
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        table td, table th {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+        tfoot td, table th {
+            background: #ddd;
+        }
+        tfoot td {
+            font-style: italic;
+        }
+        .tabelona-responsiva {
+            max-width: 100%;
+            overflow-x: auto; /*O overflow designa o que acontece quando um determinado conteúdo ultrapassa a medida de alguma das dimensões de um elemento. Nesse caso, o overflow, ou seja, a ultrapassagem, acontece no eixo X. Sendo assim, será exibida no site uma barra lateral (eixo x) que permite a visualização do restante de um conteúdo que ultrapassou o limite de tamanho do eixo x, isto é, a width. Isso permite que a tabela fique responsiva.*/
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div class="tabelona-responsiva">
+        <table>
+            <caption>Uma descrição para a tabela</caption>
+            <thead> <!--Cabeçalho de uma tabela-->
+                <tr> <!--Linha: tr = table row-->
+                    <th>Título 1</th> <!--Título da tabela: th = table header-->
+                    <th>Título 2</th>
+                    <th>Título 3</th>
+                </tr>
+            </thead>
+            <tbody> <!--Corpo da tabela-->
+                <tr>
+                    <td>Corpo 1</td> <!--td = table data-->
+                    <td>Corpo 2</td>
+                    <td>Corpo 3</td>
+                </tr>
+                <tr>
+                    <!--Uma única coluna ocupando o espaço de duas + 1 coluna (Corpo 5) mantendo o corpo da tabela:-->
+                    <td colspan="2" rowspan="2">AQUI</td> <!--O colspan nos permite determinar a quantidade de colunas que uma única coluna pode ocupar. O mesmo vale para o rowspan-->
+                    <td>Corpo 5</td>
+                </tr>
+                <tr>
+                    <!--
+                    <td>Corpo 7</td>
+                    <td>Corpo 8</td>
+                    -->
+                    <td>Corpo 9</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" rowspan="2">Total</td>
+                    <td>R$500,00</td>
+                </tr>
+                <tr>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
