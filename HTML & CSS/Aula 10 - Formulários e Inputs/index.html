@@ -9,6 +9,15 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        label {
+            cursor: pointer;
+            /*O display block faz com que um input fique embaixo do outro (quebra de linha)*/
+        }
+
+        .quebradin input {
+            display: block;
+        }
     </style>
 </head>
 
@@ -31,15 +40,194 @@
     <form action="#" method="get" target="_blank" autocomplete="off">
         <!--Um formulário é configurado automaticamente com display block. Nele, podemos aninhar outras tags, exceto outro formulário.-->
 
-        <h1>Cabeça</h1>
         <p>O formulário</p>
 
-        <fieldset> Grupo de campos
-            <legend>Descrição</legend>
-            <p>
-                <input type="text">
-            </p>
-        </fieldset>
+        <p class="quebradin">
+            <label for="nome"> <!--Label é o que rotula um input.-->
+                Nome:
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                <!--Se é necessário um campo para nomes, por exemplo, se usa um input do tipo text. O atributo name será utilizado no back-end como um identificador, assim como o ID. O atributo value representa o valor do input e pode ser pré-definido, porém editável; ele pode não ser necessário, já que o value, na maioria das vezes, já é determinado pelo usuário. O atributo disabled impede o usuário de interagir com o input, enquanto o atributo readonly ainda permite clicar no campo; ambos não deixam o usuário inserir nenhum valor no campo.-->
+            </label>
+        </p>
+
+        <p>
+            <label for="dev">
+                Sou um dev:
+                <input type="checkbox" id="dev" name="dev" value="sim">
+                <!--O servidor entenderá que o checkbox foi selecionado ao receber a informação de que o input de nome "dev" tem seu value igual a "sim".-->
+            </label>
+        </p>
+
+        <p> <!--Caso em que pode haver múltipla seleção-->
+            Manjo de:
+            <label for="dev1">
+                JS
+                <input type="checkbox" id="dev1" name="dev1" value="sim">
+            </label>
+            <label for="dev2">
+                Python
+                <input type="checkbox" id="dev2" name="dev2" value="sim">
+            </label>
+            <label for="dev3">
+                Java
+                <input type="checkbox" id="dev3" name="dev3" value="sim">
+            </label>
+        </p>
+
+        <p>
+            Gênero:
+            <label for="masc">
+                Masculino
+                <input type="radio" id="masc" name="gen" value="masculino">
+            </label>
+            <!--O name possuindo o valor ("gen") nos três inputs impossibilita o usuário de preencher mais de uma bolinha na seleção de gênero.-->
+            <label for="fem">
+                Feminino
+                <input type="radio" id="fem" name="gen" value="feminino" checked>
+            </label>
+            <label for="outro">
+                Outro
+                <input type="radio" id="outro" name="gen" value="outro">
+            </label>
+
+        </p>
+
+        <p>
+            <label for="data1">
+                Data:
+                <input type="date" id="data1" name="data1" value="2023-09-13">
+            </label>
+        </p>
+
+        <p>
+            <label for="data2">
+                Data e hora que não funfa:
+                <input type="datetime" id="data2" name="data2" value="2023-09-13">
+                <!--Se um input que não é do tipo text fica com formato de text, isso significa que o navegador não o suporta.-->
+            </label>
+        </p>
+
+        <p>
+            <label for="data3">
+                Data e hora poggers:
+                <input type="datetime-local" id="data3" name="data3" value="2023-09-13T23:00">
+            </label>
+        </p>
+
+        <p>
+            <label for="hora">
+                Hora:
+                <input type="time" id="hora" name="hora" value="23:00:20">
+            </label>
+        </p>
+
+        <p>
+            <label for="cor">
+                Cor preferida:
+                <input type="color" id="cor" name="cor" value="#00FF00"> <!--#R(00) G(FF) B(00)-->
+            </label>
+        </p>
+
+        <p class="quebradin">
+            <label for="email">
+                E-mail:
+                <input type="email" id="email" name="email" placeholder="emailzinho@emailzao.com">
+                <!--Input de e-mail já conta com uma simples validação.-->
+            </label>
+        </p>
+
+        <p class="quebradin">
+            <label for="arquivo">
+                Sua foto:
+                <input type="file" id="arquivo" name="arquivo" accept=".jpg, .png" multiple>
+                <!--Input de e-mail já conta com uma simples validação.-->
+            </label>
+        </p>
+
+        <p class="quebradin">
+            <label for="num">
+                Número:
+                <input type="number" id="num" name="num" min="10" max="50">
+            </label>
+        </p>
+
+        <p class="quebradin">
+            <label for="senha">
+                Senha:
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+            </label>
+        </p>
+
+        <p>
+            <label for="range">
+                Range:
+                <!--<input type="range" name="range" id="range" min="0" max="10" step="2" list="tickmarks">-->
+                <input type="range" name="range" id="range" step="1" list="tickmarks">
+            </label>
+
+            <datalist id="tickmarks">
+                <option value="0" label="0%">
+                <option value="10">
+                <option value="20">
+                <option value="30">
+                <option value="40">
+                <option value="50" label="50%">
+                <option value="60">
+                <option value="70">
+                <option value="80">
+                <option value="90">
+                <option value="100" label="100%">
+            </datalist>
+        </p>
+
+        <p>
+            <label for="url">
+                Sua URL:
+                <input type="url" id="url" name="url">
+            </label>
+        </p>
+
+        <p>
+            <label for="search">
+                Pesquisa:
+                <input type="search" id="search" name="search">
+            </label>
+        </p>
+
+        <p>
+            <label for="select">
+                Selecione:
+                <select name="select" id="select" multiple>
+                    <option value="valor1">Opção 1</option>
+                    <option value="valor2" selected>Opção 2</option>
+                    <option value="valor3" disabled>Opção 3</option>
+                    <option value="valor4">Opção 4</option>
+                    <option value="valor5" label="Opção 5"></option> <!--Label é diferente de value; ele serve apenas para a visualização do usuário, mas não para atribuição de um valor real para o back-end.-->
+                    <optgroup label="Comidas">
+                        <option value="strogonoff">Strogonoff</option>
+                        <option value="feijoada" label="Feijoada"></option>
+                        <option value="vaca atolada">Vaca atolada</option>
+                    </optgroup>
+                    <optgroup label="Bebidas">
+                        <option value="algua">Água</option>
+                        <option value="coquinha" label="Coca-Cola"></option>
+                        <option value="suquito">Suco de laranja</option>
+                    </optgroup>
+                </select>
+            </label>
+        </p>
+
+        <p>
+            <label for="textarea">textarea</label>
+            <textarea name="redacao" id="textarea" cols="3" rows="9"></textarea>
+        </p>
+
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Reset</button>
+        </p>
+
+
     </form>
 </body>
 
