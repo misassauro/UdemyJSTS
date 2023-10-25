@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Seletores</title>
+</head>
+<body class="error">
+
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat accusamus tempora quidem dolores accusantium! Quae error, officiis esse non doloribus dolore atque culpa enim nemo ad. Quas vel culpa accusamus!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis vel corrupti nesciunt consequatur unde fugit rem, dolores perspiciatis cumque, placeat iste officiis eos quaerat corporis voluptatum maxime. Error, quibusdam necessitatibus!</p>
+    <div>
+        <section>
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint iure maiores cupiditate ea provident ipsa itaque dolorum, commodi labore laborum nesciunt, molestias voluptatum. Ex qui sunt nulla nesciunt mollitia quisquam!</h1>
+            <p>Lorem</p>
+        </section>
+    </div>
+    <div>
+        <section>
+            <h1 class="color-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ipsum, suscipit mollitia assumenda quibusdam accusamus adipisci reprehenderit, deleniti recusandae accusantium, quo nulla velit animi ducimus! Maxime natus explicabo excepturi incidunt.</h1> <!--Cor aplicada-->
+            <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique dolores adipisci ullam iusto distinctio veritatis consequuntur! Assumenda obcaecati itaque provident officiis fugit modi repellendus, numquam dolores amet saepe, veritatis iste?</h1> <!--Cor não aplicada-->
+            <p ckass="color-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eveniet quaerat illo at modi vel numquam maiores vero rem sapiente? Natus dolor, maxime ducimus eveniet perspiciatis cupiditate ea iste autem.</p><!--Mesma classe em diferentes tags-->
+
+            <div class="main-content">
+                <h2>Lorem</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi culpa recusandae iusto earum inventore quas quasi, labore libero alias quam nisi et hic repudiandae. Nemo dolores deleniti similique corporis.</p>
+
+                <h2 class="italic-yellow">Lorem</h2>
+                <h3 class="italic-yellow">Lorem</h3>
+                <h4 class="italic-yellow">Lorem</h4>
+
+                <p class="dotted">
+                    Isso é um parágrafo com a classe dotted
+                </p>
+                <div class="dotted">
+                    Isso é uma div com a classe dotted, mesma classe usada acima
+                </div>
+            </div>
+        </section>
+    </div> <br><br>
+
+    <div class="heranca">
+        <div class="pai">
+            Pai
+            <div class="filha">
+                Filha
+                <div class="neta">
+                    Neta
+                    <div class="filha neta">
+                        Bisneta
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="heranca2">
+        <div class="pai2">
+            Pai
+            <div class="filha2">
+                Filha 1
+                <span>
+                    <div class="filha2">
+                        Filha da filha 1
+                    </div>
+                </span> <!--Se envelopamos com um span a div que contém Filha da Filha 1, esta deixa de ser filha direta de Filha 1. A filha direta de Filha 1 passa a ser a tag span.-->
+            </div>
+            <div class="filha2">
+                Filha 2
+                <div class="filha2">
+                    Filha da filha 2
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>
