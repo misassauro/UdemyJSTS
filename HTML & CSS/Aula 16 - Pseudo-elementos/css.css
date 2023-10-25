@@ -1,0 +1,36 @@
+.lista li::after {
+    content: " - ";
+    background: red;
+    color: white;
+} /*Pseudo-elementos nos permitem adicionar elementos dentro da página sem a necessidade de adicioná-los de fato no HTML.Como ::after, colocamos um traço depois de cada li de lista, mas sem escrever isso diretamente no HTML. Diferentemente das pseudo-classes, os pseudo-elementos são adicionados com dois sinais de dois pontos (::), mas também funcionam com apenas um sinal de dois pontos.*/
+
+.lista2 li::before {
+    content: " - ";
+    background: red;
+    color: white;
+}
+
+p::first-letter {
+    font-size: 65px;
+    display: block;
+    float: left;
+    margin: 0 10px 10px 0;
+} /*O pseudo-elemento ::first-letter permite que a primeira letra receba uma configuração especial.*/
+
+p::first-line {
+    background-color: red;
+}
+
+p::selection {
+    background-color: black;
+    color: white;
+} /*O que for selecionado terá fundo preto e cor de fonte branca.*/
+
+input::placeholder {
+    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+} /*Não seria necessário especificar o elemento input, apenas "::placeholder" já serviria.*/
+
+
+

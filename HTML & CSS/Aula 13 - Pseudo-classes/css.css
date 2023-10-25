@@ -1,0 +1,76 @@
+.heading:hover {
+    background-color: chartreuse;
+    color: blue;
+    text-decoration: underline;
+} /*Pseudo-classes refletem o estado de algum elemennto. Neste caso, temos um elemento que mudará sua configuração ao passarmos o mouse sobre ele. A pseudo-classe que define isso é a :hover.*/
+
+.heading {
+    transition: all 1s ease-in-out;
+} /*Definimos que todas as transições acontecerão com a velocidade de 1 segundo e terão um efeito de "suavização* ao entrar e sair.*/
+ 
+a {
+    color: darkorange;
+} /*Cor para todos os links.*/
+
+a:link {
+    color: deepskyblue;
+} /*Cor para links não visitados.*/
+
+a:visited {
+    color: deeppink;
+} /*Cor para links visitados.*/
+
+a:hover {
+    background-color: darkslateblue;
+    color: white;
+    text-decoration: none;
+} /*Hover para todos os links.*/
+
+a:active {
+    background-color: rgb(56, 163, 163);
+    color: white;
+    text-decoration: none;
+} /*Quando clicarmos e segurarmos o botão esquerdo do mouse em cima de um link, ele receberá a configuração acima, indicando que está ativo.*/
+
+input:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+    border: 2px solid black;
+} /*Quando o input for clicado, ou seja, estiver em foco, ele receberá a configuração acima.*/
+
+input:disabled {
+   background-color: red;
+   cursor: not-allowed; 
+} /*Input com atributo disabled.*/
+
+input:enabled {
+    background-color: thistle;
+} /*Input com atributo enabled, que vem por padrão ao inserirmos o input na página.*/
+
+
+input:checked {
+    width: 50px;
+    height: 50px;
+} /*Quando o checkbox for marcado, seu tamanho irá mudar.*/
+
+input:checked + p {
+    background-color: red;
+} /*Quando o checkbox for marcado, o parágrafo mais próximo a ele (adjacent sibling) terá fundo vermelho.*/
+
+.pai .lista li {
+    background-color: blue;
+}
+
+.pai .lista li:first-child {
+    background-color: green;
+}
+
+.pai .lista li:last-child {
+    background-color: red;
+}
+
+input:required {
+    background-color: darkcyan;
+} /*Input que requer ser preenchido recebe cor diferente.*/
+
+/*Tudo acima mostra que é possível determinar o estilo de um elemento através de seu estado.*/

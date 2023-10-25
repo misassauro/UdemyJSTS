@@ -1,0 +1,7 @@
+p:not(.meio) {
+    color: blue;
+} /*Todos os parágrafos, exceto o que possui a classe .meio, serão da cor azul.*/
+
+input:not(:checked) + p {
+    background-color: yellow;
+} /*Quando o input não estiver checkado, o parágrafo mais próximo terá o fundo amarelo.*/

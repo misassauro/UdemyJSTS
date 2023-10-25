@@ -1,0 +1,20 @@
+.lista li:nth-child(1) {
+    background-color: deeppink;
+} /*nth-child = n-ésimo filho. Aqui, estamos selecionando o segundo filho da unordered list. A unordered list é composta por um grupo de irmãos, no caso, os li (list-item). Desse grupo de irmãos, estamos selecionando o segundo (índice dois) para ter o fundo rosa.
+NOTA IMPORTANTE: o índice inicial de qualquer grupo de irmãos será sempre 1, e não 0.*/
+
+.lista li:nth-child(even) {
+    background: yellow;
+} /*Por usar o even, dizemos que queremos que todos os índices pares tenham o fundo amarelo. */
+
+.lista li:nth-child(odd):not(:nth-child(1)) {
+    background-color: rebeccapurple;
+} /*Acima, ordenamos para que todos os índices ímpares (odd) tenha o fundo roxo, exceto o item localizado no índice 1.*/
+
+.lista2 li:nth-child(3n) {
+    background-color: slateblue;
+} /*Cor aplicada a cada 3 índices.*/
+
+.lista2 li:nth-child(3n+5) {
+    background-color: blueviolet;
+} /*Cor aplicada de 3 em 3, porém começando a partir do quinto índice.*/
