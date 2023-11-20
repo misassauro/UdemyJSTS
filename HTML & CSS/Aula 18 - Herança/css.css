@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+    color: red;
+}
+
+/*As configurações inseridas no body estão sendo aplicadas em h1 e também em p. h1 e p herdaram as características inseridas em body.*/
+
+#texto {
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+    font-size: 70px;
+}
+
+/*O mesmo vale para os IDs.*/
+
+/*Para dizer que não queremos que um determinado elemento herde outras características, basta configurar o atributo desejado como initial. Caso contrário, configure como inherit.*/
+
+p {
+    font-size: initial;
+    color: inherit;
+}
+

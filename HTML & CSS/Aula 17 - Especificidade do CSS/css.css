@@ -1,0 +1,46 @@
+/*O nível de especificidade pode determinar qual regra será aplicada.*/
+
+/*Níveis de especificidade:
+
+ID      Classes, atributos e pseudo-classes      Elementos e pseudo-elementos
+0                       0                                  0
+1                       0                                  0
+*/
+
+.paragrafo {
+    background: red;
+} /*Especificidade: 0, 1, 0*/
+
+p {
+    background: yellow;
+    /*Especificidade: 0, 0, 1*/
+}
+
+#p.p {
+    background: violet;
+    /*Especificidade: 1, 1, 0*/
+}
+
+#p.p p {
+    background-color: aquamarine;
+    /*Especificidade: 1, 1, 1*/
+}
+
+body.bodyzao#p.paragrafo p {
+    background: cadetblue;
+    /*Especificidade: 1, 2, 2
+    1 ID, 2 classes, 2 elementos*/
+}
+
+body.bodyclass#bodyid p#p.paragrafo::selection:hover {
+    background: green;
+    /*Especificidade: 2, 3, 3*/
+}
+
+/*Força de especificidade (da menor para a maior):
+ 1. Valor de especificidade (regra com um valor de especificidade maior que outra regra);
+ 2. Empate (quando duas regras tem o mesmo valor de especificidade, a última escrita prevalecerá);
+ 3. Atributo style (inserido no HTML);
+ 4. !important.
+ 
+ Nota: se duas regras recebem !important, a que tiver o maior grau de especificidade será aplicada.*/

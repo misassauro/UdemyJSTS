@@ -1,0 +1,102 @@
+html {
+   font-size: 62.5%;
+   scroll-behavior: smooth; /*Suavização na transição de uma div para outra.*/ 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 20px; /*O px (pixels) representa uma unidade de medida absoluta. Isso significa que, mesmo que um usuário mude, em seu navegador, o tamanho da fonte, não haverá mudança no tamanho da fonte dentro do site. As unidades de medida absolutas não se baseiam em nenhuma outra para definir seu tamanho, diferente das unidades de medida relativas*/
+}
+
+.pai {
+    font-size: 50px;
+} /*Mesmo colocando o font-size como 50px, o tamanho do parágrafo dele não se altera, porque já foi definido anteriormente como 20px.*/
+
+p {
+    font-size: 1em;
+} /*Usando o em, o parágrafo passa a ter 50px, baseando-se no font-size de sua classe pai. Caso quiséssemos que o font-size fosse de 25px, bastaria definirmos ele como 0.5em, isto é, a metade do valor definido na classe pai. A unidade de medida "em" faz um elemento filho se basear em outro elemento pai mais próximo dele.
+
+50px X 0.5em = 25px.
+50px X 1em = 50px.
+50px X 1.5em = 75px.
+
+A diferença entre em e rem é que o rem se baseia no elemento root. O elemento root é o html.*/
+
+p {
+    font-size: 1.6rem; /*Por usarmos rem, o font-size de p, neste caso, será de 10px.*/
+}
+
+/*Geralmente, o html tem seu font-size em 100%, que resulta em 16px.
+
+16px X 1rem = 16px.
+
+Para podermos usar o rem como se fosse pixel, podemos reduzir a font-size para 62.5%
+
+62,5% de 16px = 10px.
+10px X 1rem  = 10px.
+10px X 1.6rem = 16px.
+
+Dessa maneira, é bem mais fácil de calcular quantos rem equivalem a determinada quantidade de px. Caso queiramos que a font-size seja de 30px, basta definirmos o font-size como 3rem. Se queremos que a classe .pai tenha 300px de largura, usamos 30rem no width, como ilustrado abaixo:*/
+
+.pai {
+    width: 30rem; /*300px*/
+    background: red;
+}
+
+/*Uma vantagem de se utilizar rem é que essa unidade de medida respeita as alterações de tamanho de fonte feitas pelo usuário.
+
+Resumão: em é relativo ao pai do elemento e rem é relativo ao root.
+
+Ainda temos as unidades vw vh, que representam 1% do tamanho do viewport.*/
+
+.pai2 {
+    width: 100vw; /*vw é usado para width. A div terá 100% da largura da área visível do navegador.*/
+    height: 100vh /*vh é usado para altura. A div terá 100% da altura da área visível do navegador.*/;
+    background: blue;
+}
+
+.pai3 {
+    width: 50vw; /*Metade da viewport*/
+    height: 50vh;
+    background: purple;
+}
+
+.pai2 p {
+    font-size: 3rem; /*30px*/
+}
+
+.color-one {
+    background: teal;
+}
+
+.color-two {
+    background: darkgoldenrod;
+}
+
+.color-three {
+    background: purple;
+}
+
+a {
+    font-size: 3rem;
+}
+
+.pai2 > div {
+    width: 50%; /*Quando utilizamos porcentagem em um elemento, essa porcentagem será referente ao seu elemento pai. No caso, a div inserida em .pai2 terá metade do tamanho dessa classe.*/
+    height: 50rem;
+    background: blue;
+}
+
+/*Há também as unidades de medida vmax e vmin, que se referem ao maior e menor tamanho de viewport. Em uma tela de 1920x1080, a vmax é de 1920 e a vmin é 1080.*/
+
+.pai2 > div p {
+    font-size: 2vmax; /*Se a tela tem como maior viewport o valor de 1000px e configuramos font-size para ter 2vmax, isso significa que a font-size terá 2% de 1000px, ou seja, 20px. O tamanho da fonte, portanto, mudará de acordo com o tamanho da viewport.*/
+}
+
+
+
+

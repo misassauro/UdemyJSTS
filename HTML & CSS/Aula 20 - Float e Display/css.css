@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.grid {   
+    padding: 15px;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    /*display: inline-block; - com essa config. as divs pegam tamanho, mantendo-se uma ao lado da outra. Quando se colocam as divs "coladas" umas nas outras, elas perdem um pouco de espaço entre si.*/
+    width: 33.33%;
+    height: 300px;
+    /*margin: 20px; Dois elementos com display setado como block terão suas margens sobrepostas, não somadas.*/
+
+    /*Como usar o espaço remanescente ao lado de cada uma das divs col?*/
+
+    float: left; /*Com isso, a div flutua para a esquerda. Agora, as margens são somadas.
+    */
+    padding: 20px;
+}
+
+.grid .col-content {
+    width: 100%;
+    height: 100%;
+    background: #123ABC; /*Cores em hexadecimal: ABCDEF0123456789
+    Você pode definir as cores ou em 3 caracteres ou em 6.
+    12(Red) 3A(Green) BC(Blue)
+    
+    É possível, também, definir cores com o formato rgb. Poderia ser algo assim: rgb(0, 255, 125) - bastante verde com um pouco de azul.
+
+    Existe também o formato rgba, com "a" de alpha, que representa a opacidade. Exemplo: rgba(0, 0, 0, 0.85).
+    
+    Há, ainda, o formato HSL (hue, saturation, lightness), bem como HSLA.
+    */
+
+}
