@@ -1,0 +1,14 @@
+p {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    direction: rtl;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    line-height: 25px;
+    text-align: center;
+    text-decoration: overline underline line-through;
+    text-indent: 50px;
+    text-shadow: 2px 2px 5px red; /*Uma sombra que anda 2px da esquerda para a direita e que anda 2px do topo para baixo. A última unidade inserida determinada o blur - o efeito de esfumaçado. Valores negativos invertem o sentido para onde a sombra anda.*/
+    text-transform: capitalize;
+}
