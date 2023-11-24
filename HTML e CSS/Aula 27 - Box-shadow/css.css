@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.grid {
+    max-width: 1200px;
+    padding: 15px;
+    padding-top: 73.4px; 
+    margin: 0 auto;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    width: 33.33%;
+    height: 300px;
+    float: left; 
+    padding: 20px;
+}
+
+.grid .col-content {
+    width: 100%;
+    height: 100%;
+    background: #123ABC;
+    box-shadow: 0 0px 15px 5px turquoise; /*Valor 1: se negativo, sombra para esquerda; se positivo, sombra para direita / Valor 2: se negativo, sombra para o topo; se positivo, sombra para baixo / Valor 3: espalhamento da sombra / Valor 4: "grossura" da sombra. É como se fosse um padding para ela. Nem sempre é preciso determinar esse valor.*/
+
+    /*É possível determinar também uma sombra interna + sombra externa. Funciona assim:*/
+
+    box-shadow: /*valores para sombra interna:*/ inset 5px 5px 5px rgb(0, 166, 255), /*valores para sombra externa:*/ 5px 5px 5px rgba(0, 0, 0, .5); /*seria possível inserir mais outras sombras.*/
+}
+
+.menu {
+    width: 100%;
+    position: fixed;
+    background: black;
+}
+
+.menu ul {
+    list-style: none;
+    display: block;
+    max-width: 1200px;
+    padding: 0px 30px;
+    margin: 0 auto;
+}
+
+.menu ul li {
+    float: left;
+}
+
+.menu ul li a {
+    display: block;
+    color: #FFF;
+    padding: 20px;
+    transition: all 300ms ease-in-out
+}
+
+.menu ul li a:hover {
+    background: #333;
+}
+
+/*
+.menu ul :nth-child(2) {
+    margin-left: 15px;
+}
+*/
+
+.menu ul li a {
+    color: white;
+    text-decoration: underline;
+}
+
+.full-page {
+    max-width: 100%;
+    padding-top: 73.4px;
+    margin: 0 auto;
+    height: 100vh;
+    background: teal;
+}
+
+.full-page-content {
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 568px) { 
+    .grid .col {
+        width: 100%;
+    }
+} 
+
+@media all and (min-width: 569px) and (max-width: 768px) {
+    .grid .col {
+        width: 50%;
+    }
+} 
+
+@media all and (min-width: 769px) and (max-width: 1200px) {
+    .grid .col {
+        width: 33.33%;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .grid .col {
+        width: 25%; 
+    }
+}

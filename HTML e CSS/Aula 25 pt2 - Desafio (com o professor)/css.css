@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.grid {
+    max-width: 1200px;
+    padding: 15px;
+    padding-top: /*58.4px*/ 73.4px; /*Nosso nav tem computado um height de 58.4px. Isso faz com que ele ocupe uma porção do grid. Para evitar isso, determinamos que o grid deverá ter um enchimento no topo (padding-top) com a mesma medida do height de nav, isto é, 58.4px. Detalhe interessante: anteriormente definimos um padding geral de 15px, mas também definimos um padding-top de 58.4px. Esse padding-top sobrescreve os 15px definidos no topo do primeiro padding definido. Por conta disso, para igualar o padding do topo com o padding da esquerda, seria interessante acrescentar mais 15px de padding para o topo, resultando em 73.4px.*/
+    margin: 0 auto;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    width: 33.33%;
+    height: 300px;
+    float: left; 
+    padding: 20px;
+}
+
+.grid .col-content {
+    width: 100%;
+    height: 100%;
+    background: #123ABC; 
+}
+
+.menu {
+    width: 100%;
+    position: fixed;
+    background: black;
+}
+
+.menu ul {
+    list-style: none;
+    display: block;
+    max-width: 1200px;
+    padding: 0px 30px;
+    margin: 0 auto;
+}
+
+.menu ul li {
+    float: left;
+}
+
+.menu ul li a {
+    display: block;
+    color: #FFF;
+    padding: 20px;
+    transition: all 300ms ease-in-out
+}
+
+.menu ul li a:hover {
+    background: #333;
+}
+
+/*Eu havia feito desta maneira o espaçamento entre os itens do menu, mas o método abaixo se torna inviável caso o menu tenha mais de dois itens:
+
+.menu ul :nth-child(2) {
+    margin-left: 15px;
+}*/
+
+.menu ul li a {
+    color: white;
+    text-decoration: underline;
+}
+
+.full-page {
+    max-width: 100%;
+    padding-top: 73.4px;
+    margin: 0 auto;
+    height: 100vh;
+    background: teal;
+}
+
+.full-page-content {
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 568px) { /*Se um dispositivo tiver como largura máxima 320px, então todos os .col ocuparão a largura total da tela, facilitando, assim, a visualização do conteúdo. (all/all devices = para todos os dispositivos)*/
+    .grid .col {
+        width: 100%;
+    }
+} 
+
+@media all and (min-width: 569px) and (max-width: 768px) { /*Se um dispositivo tiver como largura mínima 321px, então todos os .col passarão a ocupar 50% da tela, cabendo agora dois quadrados dispostos na largura total da tela. Porém, se definirmos apenas a min-width para que isso ocorra, em qualquer medida de 321px em diante essa regra será aplicada, e não é isso que queremos. Por isso, usamos o operador "and" para definir também até onde a regra abaixo será aplicada; neste caso, até a tela atingir uma largura máxima de 768px.*/
+    .grid .col {
+        width: 50%;
+    }
+} 
+
+@media all and (min-width: 769px) and (max-width: 1200px) {
+    .grid .col {
+        width: 33.33%;
+    }
+}
+
+@media all and (min-width: 1200px) { /*De 1200px de largura para frente, a regra abaixo será aplicada.*/
+    .grid .col {
+        width: 25%; /*4 quadrados lado a lado. 100% da largura da tela dividida para quatro quadrados = 25% de largura para cada quadrado.*/
+    }
+}

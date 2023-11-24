@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.grid {
+    max-width: 1200px;
+    padding: 15px;
+    padding-top: 73.4px; 
+    margin: 0 auto;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    width: 33.33%;
+    height: 300px;
+    float: left; 
+    padding: 20px;
+}
+
+.grid .col-content {
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background: #123ABC;
+    /*ARREDONDANDO AS BORDAS:*/ 
+    /*border-radius: 200px 45px 15px 0;*/ /*Em sentido horário, começando por border-top-left-radius.*/
+
+    /*Para criar um círculo perfeito, é importante que o elemento seja quadrado. Com as configurações de width e height acima, nosso elemento está com largura e altura dinâmicas. Portanto, precisamos definir largura e altura fixas.*/
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.menu {
+    width: 100%;
+    position: fixed;
+    background: black;
+}
+
+.menu ul {
+    list-style: none;
+    display: block;
+    max-width: 1200px;
+    padding: 0px 30px;
+    margin: 0 auto;
+}
+
+.menu ul li {
+    float: left;
+}
+
+.menu ul li a {
+    display: block;
+    color: #FFF;
+    padding: 20px;
+    transition: all 300ms ease-in-out
+}
+
+.menu ul li a:hover {
+    background: #333;
+}
+
+/*
+.menu ul :nth-child(2) {
+    margin-left: 15px;
+}
+*/
+
+.menu ul li a {
+    color: white;
+    text-decoration: underline;
+}
+
+.full-page {
+    max-width: 100%;
+    padding-top: 73.4px;
+    margin: 0 auto;
+    height: 100vh;
+    background: teal;
+}
+
+.full-page-content {
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 568px) { 
+    .grid .col {
+        width: 100%;
+    }
+} 
+
+@media all and (min-width: 569px) and (max-width: 768px) {
+    .grid .col {
+        width: 50%;
+    }
+} 
+
+@media all and (min-width: 769px) and (max-width: 1200px) {
+    .grid .col {
+        width: 33.33%;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .grid .col {
+        width: 25%; 
+    }
+}

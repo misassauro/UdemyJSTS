@@ -1,0 +1,61 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.menu {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: gray;
+    z-index: 2;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li {
+    margin: 10px;
+    float: left;
+}
+
+.menu li a {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.caixas {
+    width: 100%;
+    top: 50px;
+    position: relative;
+}
+
+.caixas .caixa {
+    width: 100%;
+    height: 100vh;
+    padding: 35px 20px;
+}
+
+.caixas .caixa p {
+    font-size: 3rem;
+}
+
+.caixas .caixa#one {
+    background: yellow;
+}
+
+.caixas .caixa#two {
+    background: blue;
+}
+
+.caixas .caixa#three {
+    background: purple;
+}

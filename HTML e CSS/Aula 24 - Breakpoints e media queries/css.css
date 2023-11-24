@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.grid {   
+    padding: 15px;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+   
+    width: 33.33%;
+    height: 300px;
+  
+
+    float: left; 
+    padding: 20px;
+}
+
+.grid .col-content {
+    width: 100%;
+    height: 100%;
+    background: #123ABC; 
+
+}
+
+@media all and (max-width: 568px) { /*Se um dispositivo tiver como largura máxima 320px, então todos os .col ocuparão a largura total da tela, facilitando, assim, a visualização do conteúdo. (all/all devices = para todos os dispositivos)*/
+    .grid .col {
+        width: 100%;
+    }
+} 
+
+@media all and (min-width: 569px) and (max-width: 768px) { /*Se um dispositivo tiver como largura mínima 321px, então todos os .col passarão a ocupar 50% da tela, cabendo agora dois quadrados dispostos na largura total da tela. Porém, se definirmos apenas a min-width para que isso ocorra, em qualquer medida de 321px em diante essa regra será aplicada, e não é isso que queremos. Por isso, usamos o operador "and" para definir também até onde a regra abaixo será aplicada; neste caso, até a tela atingir uma largura máxima de 768px.*/
+    .grid .col {
+        width: 50%;
+    }
+} 
+
+@media all and (min-width: 769px) and (max-width: 1200px) {
+    .grid .col {
+        width: 33.33%;
+    }
+}
+
+@media all and (min-width: 1200px) { /*De 1200px de largura para frente, a regra abaixo será aplicada.*/
+    .grid .col {
+        width: 25%; /*4 quadrados lado a lado. 100% da largura da tela dividida para quatro quadrados = 25% de largura para cada quadrado.*/
+    }
+}
