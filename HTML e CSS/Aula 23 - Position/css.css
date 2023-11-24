@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pai {
+
+}
+
+.filha1, .filha2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 0, 0, 0.664);
+    margin: 10px;
+    /*position: static;*/
+}
+
+.filha2 {
+    background: blue;
+}
+
+.filha1 {
+    /*top: 50px; Quando orientamos top/left: 50px, queremos que a div se movimente 50px a partir do topo/da esquerda.
+    left: 50px; /*.filha1, por estar com seu position configurado como static (estática), não teve alteração alguma em sua posição. No entanto, alterando position para "relative", a div obedece às instruções dadas acima.
+    position: absolute; position: absolute faz com que a div sobreponha outros elementos na tela.*/
+}
+
+/*As redundâncias são somente para manter anotações coerentes com o código, haja vista que diversas funcionalidades e hipóteses estão sendo estudadas.
+
+.filha1 {
+    width: 300px;
+    height: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+Com width e height automáticas + 0px em todos os sentidos, a div passará a tocar em todos os lados da tela (0px de distância), ao passo que tem sua largura e altura definidas automaticamente para poder se ajustar a qualquer viewport, ocupando a tela inteira.*/
+
+/*COLOCANDO UMA DIV NO CENTRO DA TELA:*/
+
+/*.filha1 {
+    position: absolute
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+    Direcionando 50% em top e left, a div passa a ficar com a ponta superior esquerda no centro da tela, mas nós queremos que a div inteira fique no centro. Como fazer isso? Uma forma é por subtrair nas margens metade da largura e da altura da div. Neste caso, tendo uma div 300x300, iremos voltar 150px para trás, tanto para cima quanto para a esquerda, centralizando a div.*/
+
+
+/*É possível fazer com que uma div sobreponha outra div configurada com position absolute? Sim, usando o z-index. Para controlar a sobreposição de divs configuradas como absolutas, atente-se a ordem de aparição das divs no HTML. Quando setamos .filha1 e .filha2 como absolutas, .filha2 sobrepõe .filha1 porque aparece por último no HTML. Abaixo, vamos fazer com que o inverso aconteça:*/
+
+/*.filha1 {
+    z-index: 2; .filha1 passa a sobrepor .filha2 porque está na camada 2, uma camada acima de .filha2 (z-index: 1)
+}
+.filha2 {
+    position: absolute;
+    z-index: 1;
+
+    A div com z-index de maior valor será sempre a que ficará por cima. Se utilizamos um z-index com valor negativo, a div em questão fica por baixo de outros elementos com z-index maior.
+} */
+
+/*POSITION: RELATIVE*/
+
+.filha2 {
+    position: relative;
+    top: 100px;
+    /*Relative: posição relativa a outro elemento. Top, anteriormente, estava sendo medido a partir da superior da tela, mas agora está se baseando na div .filha1, se distanciando 100px dela, não mais do topo da tela.*/
+}
+
+.filha3 {
+    position: relative;
+    background: green;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+.outra {
+    position: absolute;
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 50px;
+    /*Visto .outra é uma div filha de .filha3, que está configurada com position: relative, mesmo que .outra tenha posição absoluta, essa div irá respeitar os limites de sua div pai e se basear nela ao reproduzir as medidas de top e left.*/
+}
+
+.filha1 {
+    position: fixed; /*Posição fixa. O fixed se comporta de forma parecida com absolute. Mesmo ao scrollar a tela, a div se manterá fixa na posição em que estiver configurada e estará sobrepondo outros elementos, assim como absolute.*/
+    top: 30%;
+    right: 0;
+    z-index: 1;
+}
+
+ul {
+    height: 100px;
+    overflow-y: auto;
+}
+
+ul li.sticky {
+    position: sticky;
+    background: gray;
+    top: 0;
+    /*Acima, determinamos que os list items de classe .sticky terão posição sticky. Com isso, fazemos com que esses elementos acompanhem o scroll da tela até encontrarem outro elemento com position sticky, dando sequência ao efeito de acompanhamento. Para isso funcionar, é sempre necessário dizer a posição em que esses elementos irão ficar. No caso, por usarmos top: 0, fazemos com que os li.sticky fiquem no topo.*/
+}
