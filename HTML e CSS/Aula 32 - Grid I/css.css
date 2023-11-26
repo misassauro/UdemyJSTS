@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid; /*Apenas esse comando não faz mudar nada visualmente, mas a grid já existe.*/
+    /*grid-template-columns: 50% 50%;*/ /*Por inserirmos dois valores, estamos dizendo que queremos duas colunas, cada uma com tamanho de 50%.*/
+    /*grid-template-columns: 200px 100%;*/ /*Isso gera um problema: uma coluna possui 200px de largura, mas outra quer ocupar 100% da tela. É feito um overflow. Só depois de fazermos um scroll na horizontal é que a segunda coluna ocupa "de verdade" 100% da tela, porque estamos escondendo os 200px que a primeira coluna ocupa. Como lidar com isso?*/
+    /*grid-template-columns: 200px 1fr 1fr;*/ /*Usamos o fr (fragmento) para dizer que queremos que a segunda coluna ocupe o espaço restante em tela. Colocando mais uma coluna com 1fr, fazemos com que as duas últimas colunas tenham o mesmo tamanho e se mantenham ocupando, juntas, o espaço em branco na tela. Agora, se queremos que a última coluna ocupe o dobro de espaço que a segunda ocupa, basta usarmos o valor 2fr.*/
+    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 5fr 1fr 1fr;*/ /*Agora todas as colunas ocupam a mesma quantidade de espaço, exceto a sétima coluna. Todas elas expandem e autoajustam até o limite de 1200px. Mas pode ser custoso definir uma grande quantidade de colunas da maneira feita acima. Por isso, podemos usar a função repeat():*/
+    /*grid-template-columns: repeat(3, 1fr);*/ /*Aqui, estamos dizendo que queremos 3 colunas de 1 fragmento.*/
+    /*grid-template-columns: repeat(3, 1fr 2fr);*/ /*Agora, estamos dizendo que queremos 3 colunas de 1 fragmento e 3 colunas de 2 fragmentos. Surge um problema: se diminuirmos muito nossa viewport, a grid ficará muito espremida. Poderíamos usar media queries para resolver isso, ou poderíamos usar outro recurso existente dentro de grid:*/
+    /*grid-template-columns: repeat(3, minmax(320px, 1fr));*/ /*Se determinássemos que haveriam 3 colunas com 320px de largura mínima e 1fr de largura máxima, por fim, ao redimensionarmos a tela para um tamanho menor que 1200px, surgiria um overflow, porque o CSS quer manter as 3 colunas existindo de qualquer forma. Para evitarmos isso, podemos usar a propriedade auto-fill, que permitirá a grid se adequar ao tamanho da viewport automaticamente. Desse modo, a quantidade de colunas é determinada de forma automática, mas, claro, respeitando os parâmetros dados anteriormente, como exemplificado abaixo:*/
+    /*grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));*/
+    /*grid-template-columns: repeat(3, 1fr);*/
+    /*grid-template-rows: 1fr 2fr 3fr;*/ /*Com grid-template-rows controlamos as linhas do grid. Estamos determinando 1 fragmento de abrangência na primeira linha, 2 fragmentos na segunda e 3 fragmentos na terceira.*/
+    /*grid-template-rows: repeat(3, 1fr 2fr);*/ /*Uma linha com 1 fragmento e uma linha com 2 fragmentos, isso se repetindo 3 vezes.*/
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px; /*Dependendo de como nossa grid está configurada, gap pode gerar um overflow, porque seu valor é somado ao tamanho total das colunas.*/
+}
+
+.grid div {
+    background: tomato;
+    min-height: 100px;
+}
+
+/*.grid div:nth-child(5),
+.grid div:nth-child(6) {*/
+    /*grid-column-start: 1;*/ /*A coluna 5 e 6 se iniciarão na coluna 1.*/
+    /*grid-column-end: 4;*/ /*E terminarão na coluna 4*/
+    /*grid-row-start: 3;*/ /*A coluna 6 irá sobrepor a coluna 5, porque ambas começam na mesma linha. Porém, se usássemos um z-index maior na coluna 5, ela que iria sobrepor a coluna 6.*/
+    /*background: darkblue;
+}*/
+
+.grid div:nth-child(5) {
+    background: darkblue;
+    /*grid-column-start: 1;*/
+    /*grid-column-end: 4;*/
+    /*grid-row-start: 2;*/
+    /*grid-row-end: 6;*/
+    /*Essa quinta coluna começa na primeira coluna e termina na quarta. Ela também começa na segunda linha e termina na sexta linha. Se não quisermos mexer em nada disso, podemos mexer no span da grid:*/
+    grid-row: span 1; /*A coluna passa a ocupar uma linha.*/
+    grid-column: span 2; /*A coluna ocupa 2 colunas. Se forem 3, ocorre uma quebra de linha para preservar a coluna 4.*/
+}
+
+@media (max-width: 768px) {
+    .grid div:nth-child(5) {
+        grid-column: span 1;
+    }
+}
