@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 150px 1fr auto; /*3 linhas*/
+    grid-template-columns: 200px 1fr; /*Duas colunas*/
+    grid-template-areas: 
+    'header header' /*Com 'header header', definimos que o header irá ocupar as duas colunas. Caso contrário, header só ocuparia a primeira coluna com 200px.*/
+    'nav main'
+    'rodape rodape';
+
+}
+
+.grid div:nth-child(1) {
+    grid-area: header;
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid div:nth-child(2) {
+    grid-area: nav;
+    background: blue;
+}
+
+.grid div:nth-child(3) {
+    grid-area: main;
+    background: yellow;
+}
+
+.grid div:nth-child(4) {
+    grid-area: rodape;
+    background: purple;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        display: grid;
+        grid-template-rows: auto auto auto; 
+        grid-template-columns: auto auto;
+        grid-template-areas: 
+        'header'
+        'main'
+        'nav'
+        'rodape';
+    
+    }
+}
