@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    /*flex-direction: row; Flex-direction, por padrão, é row, sendo eixo principal o horizontal.*/
+    /*Muitos elementos no flex-container podem produzir um overflow na página quando não houver mais espaço para contê-los. Isso pode ser evitado usando a regra abaixo:*/
+
+    flex-wrap: wrap; /*Wrap significa "enrolar", "envolver". Imagine que você tem uma caixa de presente e quer colocar nela um papel de embrulho. Esse papel, naturalmente, vai ser bem maior que a caixa de presente, passando de suas medidas de altura e largura. O que você faz? Você enrola, envolve a caixa. Similarmente, o comando wrap faz com que o conteúdo sobressalente se enrole, a fim de não passar dos limites de altura e largura do flex-container.*/
+
+    justify-content: center;
+    align-items: center;
+    align-content: start; /*Align-content não alinha os itens individualmente, mas sim todo o conteúdo inserido dentro de flex-container.*/
+    background: yellow;
+    height: 640px;
+}
+
+.flex-item {
+    width: 33.33%; /*Cada item irá ocupar 33.3% de largura da tela, o que faz com que 3 flex-items. (100% de espaço de tela / 3 elementos = 33.3% de espaço para cada elemento. */
+    color: #fff;
+    background: red;
+}

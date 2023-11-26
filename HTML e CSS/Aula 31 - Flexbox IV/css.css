@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 24px;
+}
+
+p {
+    margin: 0 0 24px; /*Os 24px se referem ao margin-bottom de cada p.*/
+}
+
+.two-columns {
+    display: flex;
+}
+
+.two-columns .col {
+    display: flex;
+    flex-direction: column; /*main-axis passa a ser o vertical. Isso faz com que .col não fique lado a lado, e sim um embaixo do outro.*/
+    background: lawngreen;
+    margin: 15px;
+    padding: 30px;
+}
+
+ /*FLEX DENTRO DE FLEX:*/
+
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.gallery .img {
+    flex: 1 0 20%; /*Flex-grow na proporção 1, distribuindo aos elementos os px que sobram em tela, mantendo-os proporcionais; flex-shrink desativado; flex-basis de 20% em relação ao tamanho total de .gallery. Então, caso .gallery tenha 300px de largura, cada elemento .img terá 60px de largura + o tamanho da margem. Com uma margem de 10px, o valor deveria ser de 70px. Mas, as margens de elementos lado a lado são somadas, então são 10px de margem do primeiro elemento filho + 10px de margem do segundo elemento filho, totalizando 80px de largura.*/
+    margin: 10px;
+    height: 50px;
+    background: turquoise;
+}

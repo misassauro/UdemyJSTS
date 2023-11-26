@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row nowrap; /*Flex-flow é um atalho para determinamos tanto flex-direction como flex-wrap.*/
+    background: yellow;
+    height: 800px;
+}
+
+.flex-item {
+    /*width: 32%; */
+    /*Se não queremos determinar uma width, podemos usar o flex-grow.*/
+    /*flex-grow: 1;*/ /*Distribui o espaço que sobrar para todos os elementos.*/
+    /*flex-basis: 320px;*/ 
+    
+    /*Flex-basis funciona quase como o min-width. Aqui determinamos que cada flex-item terá como width-base o valor de 320px. Essa configuração combinada com flex-grow faz com que os pixels que sobram na tela sejam distribuidos igualmente para cada flex-item, somando-os à sua width-base de 320px.
+
+    EXEMPLIFICANDO: Em uma tela com largura de 640px, dois flex-items terão, cada um com exatamente 320px de largura, seriam comportados perfeitamente nessa largura de tela. Mas, se a tela tivesse 650px de largura, sobrariam 10px de espaço. Com o flex-grow: 1, esses 10px vão ser distribuídos igualmente entre os dois flex-items, somando 5px na width de cada um, resultando agora em 325px de width.*/
+
+    /*E quando eu diminuir a tela, caindo numa largura abaixo de 320px? A propriedade que permite essa diminuição da largura ao redimensionar a tela se chama flex-shrink, e nós podemos desabilitar (inserindo o valor 0) ou habilitar ela. Quando desligamos o flex-shrink, pode parecer que nada acontece porque, quando diminuimos a tela, o flex-container diminui de tamanho. Apesar disso, o flex-item não irá diminuir junto, mas sim fazer um overflow, de modo a permanecer com 320px de largura.*/
+
+    /*flex-shrink: 0;*/ /*Observe as propriedades computadas nos flex-items quando o flex-shrink é desativado e verá que, mesmo ao redimensionar a tela para uma largura abaixo de 320px, ainda assim os flex-items permancem com 320px de largura.*/
+
+    /*Flex-grow, flex-basis e flex-shrink podem ser determinados usando apenas a propriedade flex. Observe como:*/
+    /*flex: 1 1 320px;*/ /*Sequência de parâmetros desse atalho: flex-grow, flex-shrink e flex-basis.*/
+    color: #fff;
+    /*margin-bottom: 2%;*/
+    background: red;
+    /*height: 200px;*/
+    width: 100%;
+}
+
+.flex-item:nth-child(2) {
+    /*flex: 2 1 320px;*/ /*Os valores inseridos em flex-grow representam uma proporção. Quando dizemos que todos os elementos tem o flex-grow como 1, fazemos com que todos eles recebam um pouquinho do espaço que sobrou. Mas, no caso do segundo flex-item, ele recebe o dobro do espaço que sobrou.
+    
+    EXEMPLIFICANDO:
+    
+    Novamente, em uma tela com 650px de largura total, com dois flex-items de largura base de 320px, teríamos uma sobra de 10px. Ao invés de cada um dos dois elementos receber 5px cada, agora o primeiro flex-item irá receber 3.328px, tendo 323.328px no total, e o segundo flex-item receberá 6.672px, tendo 326.672px no total.
+    
+    Lembre-se: sobraram 10px. Como um dos flex-items tem uma proporção maior, ocorre aqui um balanceamento respeitando essa proporção e a sobra de 10px.
+
+    323.328 + 326.672 = 650.
+    3,328 + 6,672 = 10.
+    */
+    /*background: blue;*/
+    /*align-self: flex-end;*/ /*Alinhamento individual, feito por elemento*/
+}
+
+/* ALINHANDO ELEMENTOS INDIVUALMENTE: */
+
+/*.flex-item:nth-child(3) {
+    align-self: center;
+}
+
+.flex-item:nth-child(4) {
+    align-self: stretch;
+}*/
+
+/*USANDO ORDER*/
+
+.flex-item:nth-child(1) {
+    order: 1; /*Todos recebem order: 0. Como a ordem começa com o que possui o valor menor, assim que inserimos order: 1 nesse primeiro filho, ele se torna o último.*/
+}
+
+.flex-item:nth-child(2) {
+    order: -1;
+}
+
+.flex-item:nth-child(3) {
+    order: 4;
+}
+
+.flex-item:nth-child(4) {
+    order: 3;
+}

@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex; /*Para tornar os flex-items flexible boxes, precisamos definir o display de sua classe pai como flex. A vantagem de se usar flexible boxes é que isso torna possível,  por exemplo, centralizar elementos de maneira mais fácil; manter múltiplas colunas com a mesma altura, ainda que contenham uma quantidade diferente de conteúdo; fazer com que os filhos de um container ocupem uma quantidade igual de largura/altura disponível, seja ela qual for. 
+    Quando setamos display: flex, ganhamos algumas configurações adicionais automaticamente, exemplificadas abaixo nos três itens abaixo:*/
+
+    flex-direction: row; /*O flex-direction especifica a direção do eixo principal, ou seja, em qual direção os filhos da flexbox/flex-container estarão arranjados. Por padrão, o valor será sempre row. 
+    Row é o mesmo que linha. Com o flex-direction: row o eixo principal é o horizontal e o eixo transversal é o vertical, por isso os elementos dentro da div serão dispostos horizontalmente, como que seguindo a linha de um caderno. Os elementos ficam arranjados numa linha na direção em que nosso navegador está configurado de acordo com a nossa direção de leitura; no caso do português e do inglês, da esquerda para a direita. 
+    
+    Com o flex-direction: column, o eixo principal passa a ser o vertical e o eixo transversal se torna o horizontal, o que faz os elementos dentro da div serem posicionados verticalmente, em colunas, assim como eles estavam antes de adicionarmos qualquer regra CSS.
+    Row/Column-reverse: inverte a ordem das divs.*/
+
+    justify-content: center; /*As configurações do eixo principal são feitas dentro de justify-content.
+    flex-start - elementos flex ficam na esquerda, no início do eixo principal; 
+    flex-end - elementos flex ficam na direita, no final do eixo principal;
+    center - elementos flex ficam no centro do eixo principal.
+    space-around: distribui todos os flex-items igualmente pelo eixo principal, com um pouco de espaço no final;
+    space-between: faz o mesmo que space-around, mas sem espaço no final;
+    space-evenly: evenly significa "uniformememnte". O espaço é distribuído uniformemente entre entre os elementos, ao redor de cada um.*/
+
+    align-items: center; /*As configurações do eixo perpendicular são feitas dentro de align-items.
+    É possível usar flex-star e flex-end. Usando justify-content e align-items configurados como center, centralizamos elementos na tela.
+
+    align-items: baseline - caso um dos itens tivesse uma fonte maior que a de outros, os elementos serão alinhados na linha de base desse item;
+
+    align-items: stretch - estica os elementos flex para preencher o elemento pai na direção do eixo transversal. Se o flex-direction for row, o eixo transversal será vertical. Neste caso, o strech fará com que o elemento flex se estique para preencher o elemento pai verticalmente. Se o flex-direction for column, o eixo transversal será horizontal. Dessa maneira, o strech estica o elemento flex para preencher o elemento pai horizontalmente.
+
+    NOTA: elemento pai = flex-container / elemento flex = flex-item
+
+    align-items: center - centraliza o flex-item ao longo do eixo transversal.
+    */
+    background: yellow;
+    height: 500px;
+    /*gap: 30px; Espaçamento entre os elementos de 30px*/
+}
+
+.flex-item {
+    width: 100%;
+    background: red;
+    margin: 10px;
+}
