@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício - Aula 03</title>
+  </head>
+  <body>
+    <script>
+      const name = prompt("Insert your full name:");
+      const numberOfLetters = name.replace(/ /g, "").length;
+      const secondLetter = name.charAt(1).toUpperCase();
+      const firstIndexOfLetterA = name.indexOf("a");
+      const lastIndexOfLetterA = name.lastIndexOf("a");
+      const lastThreeWords = name.slice(-3);
+      const words = name.split(" ");
+      const upperCaseName = name.toUpperCase();
+      const lowerCaseName = name.toLowerCase();
+
+      document.body.innerHTML += `Your name is: <strong>${name}</strong> <br/>`;
+      document.body.innerHTML += `Your name have <strong>${numberOfLetters}</strong> letters <br/>`;
+      document.body.innerHTML += `The second letter of your name is <strong>${secondLetter}</strong> <br/>`;
+      document.body.innerHTML += `The first index of the letter A in your name is <strong>${firstIndexOfLetterA}</strong> <br/>`;
+      document.body.innerHTML += `The last index of the letter A in your name is <strong>${lastIndexOfLetterA}</strong> <br/>`;
+      document.body.innerHTML += `The last three words in your name are <strong>${lastThreeWords.toUpperCase()}</strong> <br/>`;
+      document.body.innerHTML += `The words in your name are <strong>${words}</strong> <br/>`;
+      document.body.innerHTML += `Your name in uppercase <strong>${upperCaseName}</strong> <br/>`;
+      document.body.innerHTML += `Your name in lowercase <strong>${lowerCaseName}</strong> <br/>`;
+    </script>
+  </body>
+</html>
