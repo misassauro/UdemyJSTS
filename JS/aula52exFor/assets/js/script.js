@@ -11,9 +11,14 @@ const div = document.createElement('div');
 
 for (let i = 0; i < elements.length; i++) {
     let { tag, text } = elements[i];
-    let newElement = document.createElement(tag);
-    newElement.innerHTML = text;
-    div.appendChild(newElement);
+    let newTag = document.createElement(tag);
+    // newTag.innerHTML = text;
+    // newTag.innerText = text; // that would be more proper than using innerHTML since inside the text we do not have a HTML
+
+    // Texts can be consider DOM (Document Object Model) elements
+    let createdText = document.createTextNode(text);
+    newTag.appendChild(createdText);
+    div.appendChild(newTag);
 }
 
 container.appendChild(div);
